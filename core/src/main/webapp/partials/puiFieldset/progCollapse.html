@@ -1,0 +1,54 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiFieldset">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Programmatic collapse and expand</header>
+			<pui-fieldset id="programmatic" legend="Programmatic" style="margin-bottom:20px" binding="fieldsetOptions">
+			    The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+			    His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+			    Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+			    kind and benevolent to those who give respect,
+			    but given to ruthless violence whenever anything stands against the good of the family.
+			</pui-fieldset>
+			<button id="collapseBtn" ng-click="collapseFieldset()" type="button" ng-hide="fieldsetOptions.collapsed" >Collapse</button>
+			<button id="expandBtn" ng-click="expandFieldset()" type="button" ng-show="fieldsetOptions.collapsed">Expand</button>
+
+
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+                    <pre pretty-print="html" >
+<pui-fieldset id="programmatic" legend="Programmatic" style="margin-bottom:20px" binding="fieldsetOptions">
+    The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+    ...
+    but given to ruthless violence whenever anything stands against the good of the family.
+</pui-fieldset>
+<button ng-click="collapseFieldset()" type="button" ng-hide="fieldsetOptions.collapsed" >Collapse</button>
+<button ng-click="expandFieldset()" type="button" ng-show="fieldsetOptions.collapsed">Expand</button>
+
+                    </pre>
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+                    <pre pretty-print="js" >
+$scope.fieldsetOptions = {
+    collapsed : true
+};
+
+$scope.collapseFieldset = function() {
+    $scope.fieldsetOptions.collapsed = true;
+};
+
+$scope.expandFieldset = function() {
+    $scope.fieldsetOptions.collapsed = false;
+};
+                    </pre>
+                </pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+	</pui-panel>
+</div>

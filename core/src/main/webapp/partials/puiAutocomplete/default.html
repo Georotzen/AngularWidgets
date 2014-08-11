@@ -1,0 +1,34 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiAutocomplete">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Default integration</header>
+
+			<pui-autocomplete id="default" value="country" completeMethod="countries"></pui-autocomplete> (hint: countries)<br/>
+			Controller value is :<span id="modelValue">{{country}}</span>
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+						<pre pretty-print="html" >
+	<pui-autocomplete id="default" value="country" complete_Method="countries"></pui-autocomplete> (hint: countries)<br/>
+    Controller value is : {{country}}
+						</pre>
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+						<pre pretty-print="js" >
+	$scope.country = null;
+	$scope.countries = new Array("Afghanistan", "Albania", "Algeria", "Andorra", ...);
+
+						</pre>
+
+					</pui-panel>
+				</pui-tabview>
+		</pui-fieldset>
+
+	</pui-panel>
+</div>

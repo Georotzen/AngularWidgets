@@ -1,0 +1,12 @@
+/target
+/core/target
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+/.idea
+/*.iml
+/core/.idea
+/core/*.iml

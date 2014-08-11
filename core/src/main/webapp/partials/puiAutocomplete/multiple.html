@@ -1,0 +1,41 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiAutocomplete">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Multiple values integration</header>
+
+			<pui-autocomplete id="multiple" value="country" binding="multipleCountry"></pui-autocomplete><br/>
+			Field value is : {{country}}<br/>
+			Selected values are : {{multipleCountry.multipleValues}}
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+						<pre pretty-print="html" >
+        <pui-autocomplete id="multiple" value="country" binding="multipleCountry"></pui-autocomplete><br/>
+        Field value is : {{country}}<br/>
+        Selected values are : {{multipleCountry.multipleValues}}
+						</pre>
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+
+						<pre pretty-print="js" >
+	$scope.country = null;
+	$scope.countries = new Array("Afghanistan", "Albania", "Algeria", "Andorra", ...);
+
+	$scope.multipleCountry = {
+		multiple: true
+		, completeMethod: $scope.countries
+		, multipleValues: []
+	};
+						</pre>
+					</pui-panel>
+				</pui-tabview>
+		</pui-fieldset>
+
+	</pui-panel>
+</div>

@@ -1,0 +1,39 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiGrowl">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Sticky message example</header>
+			<button id="infoBtn" ng-click="showStickyMessage()" type="button" >Info</button>
+			<button ng-click="resetGrowlOptions()" type="button" >Reset options</button>
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+						<pre pretty-print="html" >
+	<button ng-click="showStickyMessage()" type="button" >Info</button>
+	<button ng-click="resetGrowlOptions()" type="button" >Reset options</button>
+
+						</pre>
+
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+						<pre pretty-print="js" >
+	$scope.showStickyMessage = function() {
+		puiGrowl.setSticky(true);
+		puiGrowl.showInfoMessage('Message', "Message remains until close icon clicked or other message requested");
+	};
+
+	$scope.resetGrowlOptions = function() {
+		puiGrowl.setSticky(false);
+	}
+
+						</pre>
+					</pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+	</pui-panel>
+</div>

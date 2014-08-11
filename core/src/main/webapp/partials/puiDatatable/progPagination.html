@@ -1,0 +1,65 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiDatatable">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Programmatic changing the current page</header>
+            <pui-datatable binding="progPaginatedData" id="progPaginatorSelection"></pui-datatable><br/>
+            Current active page is {{progPaginatedData.selectedPage}} <br/>
+            Goto page <pui-inputText value="progPage.page" id="newSelectedPage"></pui-inputText> (0-based) <pui-button actionListener="setPaginationPage()" id="setPage" value="Go" ></pui-button>
+
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+                    <pre pretty-print="html" >
+    <pui-datatable binding="progPaginatedData"></pui-datatable><br/>
+    Current active page is {{progPaginatedData.selectedPage}} <br/>
+    Goto page <pui-inputText value="progPage.page" id="newSelectedPage"></pui-inputText> (0-based) <pui-button actionListener="setPaginationPage()" id="setPage" value="Go" ></pui-button>
+
+                    </pre>
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+                    <pre pretty-print="js" >
+
+$scope.fixedData =  [
+    {'brand':'Volkswagen','year': 2012, 'color':'White', 'vin':'dsad231ff'},
+    {'brand':'Audi','year': 2011, 'color':'Black', 'vin':'gwregre345'},
+    {'brand':'Renault','year': 2005, 'color':'Gray', 'vin':'h354htr'},
+    {'brand':'Bmw','year': 2003, 'color':'Blue', 'vin':'j6w54qgh'},
+    {'brand':'Mercedes','year': 1995, 'color':'White', 'vin':'hrtwy34'},
+    {'brand':'Opel','year': 2005, 'color':'Black', 'vin':'jejtyj'},
+    {'brand':'Honda','year': 2012, 'color':'Yellow', 'vin':'g43gr'},
+    {'brand':'Chevrolet','year': 2013, 'color':'White', 'vin':'greg34'},
+    {'brand':'Opel','year': 2000, 'color':'Black', 'vin':'h54hw5'},
+    {'brand':'Mazda','year': 2013, 'color':'Red', 'vin':'245t2s'}
+];
+
+$scope.progPaginatedData = {
+    tableData : $scope.fixedData
+    , rows : 4
+    , paginator : true
+    , selectedPage: 0
+    , onPage : function(event, data) {
+        $scope.safeApply(function() {
+            $scope.progPaginatedData.selectedPage = data;
+        });
+    }
+};
+
+$scope.progPage = {
+    page : 0
+};
+
+$scope.setPaginationPage = function() {
+  $scope.progPaginatedData.setPaginationPage($scope.progPage.page);
+}
+                    </pre>
+                </pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+	</pui-panel>
+</div>

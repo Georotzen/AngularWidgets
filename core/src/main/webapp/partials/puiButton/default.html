@@ -1,0 +1,31 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiButton">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Default integration</header>
+
+			<pui-button id="default" actionListener="showMessage('Button clicked')" value="AngularWidgets"></pui-button>
+		</section>
+
+		<pui-fieldset legend="source" id="Source" pui-fieldset style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+						<pre pretty-print="html" >
+	<pui-button id="default" actionListener="showMessage('Button clicked')" value="AngularWidgets"></pui-button>
+						</pre>
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+						<pre pretty-print="js" >
+	$scope.showMessage = function(msg) {
+		alert(msg);
+	};
+						</pre>
+                </pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+
+	</pui-panel>
+</div>

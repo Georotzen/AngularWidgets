@@ -1,0 +1,102 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiDatatable">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+            <header>Programmatic row selection</header>
+            <pui-datatable binding="progSelectTableData" id="progRowSelect">
+                <pui-column value="brand"></pui-column>
+                <pui-column value="year"></pui-column>
+                <pui-column value="color"></pui-column>
+            </pui-datatable>
+            row index : <pui-inputText value="data.rowIndex" id="rowIndex" > </pui-inputText>
+            <pui-button actionListener="selectDataRow()" id="selectBtn" value="Select"></pui-button>
+            <pui-button actionListener="unselectDataRow()" id="unselectBtn" value="Unselect"></pui-button>  <br/>
+
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+                    <pre pretty-print="html" >
+
+        <pui-datatable binding="progSelectTableData">
+            <pui-column value="brand"></pui-column>
+            <pui-column value="year"></pui-column>
+            <pui-column value="color"></pui-column>
+        </pui-datatable>
+        row index : <pui-inputText value="data.rowIndex" id="rowIndex" > </pui-inputText>
+        <pui-button actionListener="selectDataRow()" id="selectBtn" value="Select"></pui-button>
+        <pui-button actionListener="unselectDataRow()" id="unselectBtn" value="Unselect"></pui-button>  <br/>
+
+                    </pre>
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+                    <pre pretty-print="js" >
+$scope.fixedData =  [
+    {'brand':'Volkswagen','year': 2012, 'color':'White', 'vin':'dsad231ff'},
+    {'brand':'Audi','year': 2011, 'color':'Black', 'vin':'gwregre345'},
+    {'brand':'Renault','year': 2005, 'color':'Gray', 'vin':'h354htr'},
+    {'brand':'Bmw','year': 2003, 'color':'Blue', 'vin':'j6w54qgh'},
+    {'brand':'Mercedes','year': 1995, 'color':'White', 'vin':'hrtwy34'},
+    {'brand':'Opel','year': 2005, 'color':'Black', 'vin':'jejtyj'},
+    {'brand':'Honda','year': 2012, 'color':'Yellow', 'vin':'g43gr'},
+    {'brand':'Chevrolet','year': 2013, 'color':'White', 'vin':'greg34'},
+    {'brand':'Opel','year': 2000, 'color':'Black', 'vin':'h54hw5'},
+    {'brand':'Mazda','year': 2013, 'color':'Red', 'vin':'245t2s'}
+];
+
+$scope.progSelectTableData = {
+    tableData : $scope.fixedData
+    , selectionMode : 'multiple'
+    , rowKey : 'vin'
+    , selectedIndices : []
+    , onRowSelect : function(event, data) {
+        this.selectedIndices.push($scope.progSelectTableData.tableData.indexOf(data));
+    }
+    , onRowUnselect: function(event, data) {
+        if (data) {
+
+            this.selectedIndices.splice(this.selectedIndices.indexOf(data.vin, 1));
+        } else {
+            this.selectedIndices = [];
+        }
+    }
+};
+
+$scope.data = {};
+$scope.data.rowIndex = null;
+
+$scope.selectDataRow = function() {
+    var rowIdx = parseInt($scope.data.rowIndex, 10);
+    if (isNaN(rowIdx)) {
+        return;
+    }
+    var index = $scope.progSelectTableData.selectedIndices.indexOf(rowIdx);
+    if (index === -1) {
+        $scope.progSelectTableData.selectedIndices.push(rowIdx);
+        $scope.progSelectTableData.addSelection($scope.progSelectTableData.tableData[rowIdx].vin);
+    }
+};
+
+$scope.unselectDataRow = function() {
+    var rowIdx = parseInt($scope.data.rowIndex, 10);
+    if (isNaN(rowIdx)) {
+        return;
+    }
+    var index = $scope.progSelectTableData.selectedIndices.indexOf(rowIdx);
+    if (index !== -1) {
+        $scope.progSelectTableData.selectedIndices.splice(index, 1);
+        $scope.progSelectTableData.removeSelection($scope.progSelectTableData.tableData[rowIdx].vin);
+    }
+
+};
+
+                    </pre>
+                </pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+	</pui-panel>
+</div>

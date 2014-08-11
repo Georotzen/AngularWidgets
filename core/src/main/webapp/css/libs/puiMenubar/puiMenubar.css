@@ -1,0 +1,56 @@
+/** Menubar **/
+.pui-menubar {
+    width:auto;
+}
+
+.pui-menubar .pui-menuitem {
+    width:auto;
+    clear:none;
+}
+
+.pui-menubar .pui-menu-child .pui-menuitem {
+    width:100%;
+}
+
+.pui-menubar .pui-menu-child {
+    top:25px;
+    left:0;
+}
+
+.pui-menubar .pui-menuitem-link {
+    width:auto;
+    padding:0.4em 0.3em;
+}
+
+.pui-menubar .pui-menu-child .pui-menuitem-link {
+    width:92%;
+}
+
+.pui-menubar .ui-widget-header {
+    clear:none;
+    width:auto;
+    margin:0 3px 0 0;
+}
+
+.pui-menubar .ui-widget-header h1,
+.pui-menubar .ui-widget-header h2,
+.pui-menubar .ui-widget-header h3,
+.pui-menubar .ui-widget-header h4,
+.pui-menubar .ui-widget-header h5,
+.pui-menubar .ui-widget-header h6 {
+    padding:0.4em 0.3em;
+}
+
+.pui-menubar .pui-menubar-options {
+    float: right;
+}
+
+.pui-menu .ui-separator {
+    width:98%;
+    height:0px;
+    float:left;
+    clear:both;
+    margin:1px 0 0 0;
+    padding:0;
+    border-top: 0px none;
+}

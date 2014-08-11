@@ -1,0 +1,53 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiPanel">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Programmatic collapse/expand</header>
+
+			<button ng-click="expandPanel()" type="button" ng-show="panelOptions.collapsed" id="expandBtn">Expand panel</button>
+			<button ng-click="collapsePanel()" type="button" ng-hide="panelOptions.collapsed" id="collapseBtn" >Collapse panel</button>
+
+			<pui-panel id="progToggle" binding="panelOptions" style="margin-bottom:20px" header="Programmatic control">
+			    The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+			    His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
+			    Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
+		    	kind and benevolent to those who give respect,
+			    but given to ruthless violence whenever anything stands against the good of the family.
+			</pui-panel>
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+                <pui-tabview id="sourceTabs" >
+                    <pui-panel header="html" id="d_html">
+						<pre pretty-print="html" >
+	<button ng-click="expandPanel()" type="button" ng-show="panelOptions.collapsed" >Expand panel</button>
+	<button ng-click="collapsePanel()" type="button" ng-hide="panelOptions.collapsed">Collapse panel</button>
+
+	<pui-panel id="progToggle" binding="panelOptions" style="margin-bottom:20px" header="Programmatic control">
+		The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+		...
+		but given to ruthless violence whenever anything stands against the good of the family.
+	</pui-panel>
+						</pre>
+					</pui-panel>
+                    <pui-panel header="controller" id="d_script">
+						<pre pretty-print="js" >
+	$scope.panelOptions = {collapsed: false};
+
+	$scope.expandPanel = function () {
+		$scope.panelOptions.collapsed = false;
+	};
+
+	$scope.collapsePanel = function () {
+		$scope.panelOptions.collapsed = true;
+	};
+							</pre>
+					</pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+
+	</pui-panel>
+</div>

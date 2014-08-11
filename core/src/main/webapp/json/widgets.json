@@ -1,0 +1,267 @@
+[
+    {
+        "widget": "puiAutocomplete",
+        "controller": "AutocompleteController",
+        "defaultPath": "puiAutocomplete/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiAutocomplete/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiAutocomplete/default"
+            },
+            {
+                "label": "dropdown",
+                "path": "puiAutocomplete/dropdown"
+            },
+            {
+                "label": "function",
+                "path": "puiAutocomplete/function"
+            },
+            {
+                "label": "disabled",
+                "path": "puiAutocomplete/disabled"
+            },
+            {
+                "label": "multiple",
+                "path": "puiAutocomplete/multiple"
+            },
+            {
+                "label": "Force selection",
+                "path": "puiAutocomplete/limited"
+            },
+            {
+                "label": "Callback",
+                "path": "puiAutocomplete/callback"
+            }
+
+        ]
+    },
+    {
+        "widget": "puiButton",
+        "controller": "ButtonController",
+        "defaultPath": "puiButton/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiButton/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiButton/default"
+            },
+            {
+                "label": "disabled",
+                "path": "puiButton/disabled"
+            },
+            {
+                "label": "icons",
+                "path": "puiButton/icons"
+            },
+            {
+                "label": "dynamic text",
+                "path": "puiButton/title"
+            },
+            {
+                "label": "visible",
+                "path": "puiButton/visible"
+            }
+        ]
+    },
+    {
+        "widget": "puiDatatable",
+        "controller": "DatatableController",
+        "defaultPath": "puiDatatable/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiDatatable/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiDatatable/default"
+            },
+            {
+                "label": "remote",
+                "path": "puiDatatable/remoteData"
+            },
+            {
+                "label": "columns",
+                "path": "puiDatatable/columns"
+            },
+            {
+                "label": "sort and selection",
+                "path": "puiDatatable/sortSelection"
+            },
+            {
+                "label": "paginator",
+                "path": "puiDatatable/paginator"
+            },
+            {
+                "label": "captions",
+                "path": "puiDatatable/captions"
+            },
+            {
+                "label": "multiselect",
+                "path": "puiDatatable/multiSelection"
+            },
+            {
+                "label": "progselect",
+                "path": "puiDatatable/progSelection"
+            },
+            {
+                "label": "progpagination",
+                "path": "puiDatatable/progPagination"
+            }
+        ]
+    },
+    {
+        "widget": "puiFieldset",
+        "controller": "FieldsetController",
+        "defaultPath": "puiFieldset/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiFieldset/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiFieldset/default"
+            },
+            {
+                "label": "toggle",
+                "path": "puiFieldset/toggle"
+            },
+            {
+                "label": "prog collapse",
+                "path": "puiFieldset/progCollapse"
+            },
+            {
+                "label": "callback",
+                "path": "puiFieldset/callback"
+            },
+            {
+                "label": "dynamic legend",
+                "path": "puiFieldset/legend"
+            }
+        ]
+    },
+    {
+        "widget": "puiGrowl",
+        "controller": "GrowlController",
+        "defaultPath": "puiGrowl/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiGrowl/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiGrowl/default"
+            },
+            {
+                "label": "sticky",
+                "path": "puiGrowl/sticky"
+            }
+        ]
+    },
+    {
+        "widget": "puiInputText",
+        "controller": "InputController",
+        "defaultPath": "puiInputText/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiInputText/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiInputText/default"
+            },
+            {
+                "label": "disabled",
+                "path": "puiInputText/disabled"
+            },
+            {
+                "label": "visible",
+                "path": "puiInputText/visible"
+            }        ]
+    },
+    {
+        "widget": "puiPanel",
+        "controller": "PanelController",
+        "defaultPath": "puiPanel/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiPanel/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiPanel/default"
+            },
+            {
+                "label": "options",
+                "path": "puiPanel/options"
+            },
+            {
+                "label": "horizontal toggle",
+                "path": "puiPanel/horiztoggle"
+            },
+            {
+                "label": "programmatic toggle",
+                "path": "puiPanel/progtoggle"
+            },
+            {
+                "label": "dynamic title",
+                "path": "puiPanel/title"
+            },
+            {
+                "label": "Callback",
+                "path": "puiPanel/callback"
+            }
+        ]
+    },
+    {
+        "widget": "puiTabview",
+        "controller": "TabviewController",
+        "defaultPath": "puiTabview/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiTabview/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiTabview/default"
+            },
+            {
+                "label": "closeable",
+                "path": "puiTabview/closeable"
+            },
+            {
+                "label": "left orientation",
+                "path": "puiTabview/left"
+            },
+            {
+                "label": "callback",
+                "path": "puiTabview/callback"
+            },
+            {
+                "label": "dynamic",
+                "path": "puiTabview/dynamic"
+            },
+            {
+                "label": "programmatic index change",
+                "path": "puiTabview/programmatic"
+            },
+            {
+                "label": "inclusions",
+                "path": "puiTabview/repeat"
+            }
+
+        ]
+    }
+]

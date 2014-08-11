@@ -1,0 +1,48 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiButton">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+		<section>
+			<header>Support for rendered</header>
+
+			<pui-button id="visible" actionListener="showMessage('Initially hidden button clicked')" value="Now visible" rendered="buttonVisible"></pui-button>
+			<br/>
+			<button ng-click="showButton()" type="button" ng-hide="buttonVisible" id="showBtn">Show button</button>
+			<button ng-click="hideButton()" type="button" ng-show="buttonVisible" id="hideBtn">Hide button</button>
+		</section>
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+						<pre pretty-print="html" >
+        <pui-button id="visible" actionListener="showMessage('Initially hidden button clicked')" value="Now visible" rendered="buttonVisible"></pui-button>
+        <br/>
+        <button ng-click="showButton()" type="button" ng-hide="buttonVisible" id="showBtn">Show button</button>
+        <button ng-click="hideButton()" type="button" ng-show="buttonVisible" id="hideBtn">Hide button</button>
+						</pre>
+
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+						<pre pretty-print="js" >
+	$scope.showMessage = function(msg) {
+		alert(msg);
+	};
+
+	$scope.buttonDisabled = true;
+
+	$scope.enableButton = function() {
+		$scope.buttonDisabled = false;
+	};
+
+	$scope.disableButton = function() {
+		$scope.buttonDisabled =  true;
+	};
+
+						</pre>
+
+				</pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+
+	</pui-panel>
+</div>

@@ -1,0 +1,36 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiDatatable">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>Remote data</header>
+            <pui-datatable value="remoteData" id="remoteData"></pui-datatable>
+
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+                    <pre pretty-print="html" >
+<div pui-datatable="remoteData"></div>
+
+                    </pre>
+                </pui-panel>
+                <pui-panel header="controller">
+                    <pre pretty-print="js" >
+        $scope.remoteData = function (callback) {
+            $http.get('json/cars.json')
+                .then(function(response){
+                    $scope.safeApply(  // external changes aren't picked up by angular
+                        callback.call(this, response.data)
+                    )
+                });
+        };
+                    </pre>
+                </pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+	</pui-panel>
+</div>
