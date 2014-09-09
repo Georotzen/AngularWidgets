@@ -89,7 +89,7 @@ public class TabviewTest extends AbstractWidgetTest {
 
     @Override
     protected int getWidgetIdx() {
-        return 7;
+        return 8;
     }
 
     @Test

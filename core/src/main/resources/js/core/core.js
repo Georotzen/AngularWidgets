@@ -214,7 +214,7 @@
 
     }]);
 
-    angular.module('angular.widgets').value('version', "v0.1");
+    angular.module('angular.widgets').value('version', "v0.2");
 
     angular.forEach({
         hover: function hoverFn(element, fnEnter, fnLeave) {

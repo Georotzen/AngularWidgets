@@ -50,7 +50,7 @@ public class PanelTest extends AbstractWidgetTest {
 
     @Override
     protected int getWidgetIdx() {
-        return 6;
+        return 7;
     }
 
     @Test

@@ -33,7 +33,7 @@ public class GrowlTest extends AbstractWidgetTest {
 
     @Override
     protected int getWidgetIdx() {
-        return 4;
+        return 5;
     }
 
 

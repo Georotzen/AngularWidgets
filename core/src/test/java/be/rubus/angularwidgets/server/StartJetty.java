@@ -10,7 +10,7 @@ public class StartJetty {
         Server server = new Server(8080);
 
         WebAppContext wac = new WebAppContext();
-        wac.setResourceBase("./target/angularwidgets-0.1");  // TODO this needs manual change if we increase version number
+        wac.setResourceBase("./target/angularwidgets-0.2");  // TODO this needs manual change if we increase version number
         wac.setDescriptor("WEB-INF/web.xml");
         wac.setContextPath("/angularWidgets");
         wac.setParentLoaderPriority(true);

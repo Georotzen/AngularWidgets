@@ -1506,6 +1506,50 @@
             link : linkFn
         };
     });
+}(window, document));;/*globals window document angular */
+
+(function (window, document, undefined) {
+    "use strict";
+
+    angular.module('angular.widgets').factory('widgetEvent', [ function () {
+
+        var widgetEvent = {};
+
+        widgetEvent.determineOptions = function(scope, element, attrs) {
+            var nodeName = element.parent()[0].nodeName,
+                event = attrs.event;
+
+            if (! event) {
+                if (nodeName === 'INPUT') {
+                    event = 'ngEnter';
+                }
+            }
+            element.data("puiEvent", {event: event, callback: function () {
+                console.log("event triggered");
+                scope.actionListener();
+            }});
+        };
+
+        return widgetEvent;
+
+    }]);
+
+
+    angular.module('angular.widgets').directive('puiEvent', ['widgetEvent', function (widgetEvent) {
+        var linkFn = function (scope, element, attrs) {
+            widgetEvent.determineOptions(scope, element, attrs);
+
+        };
+        return {
+            restrict: 'E',
+            scope: {
+                actionListener: '&actionlistener',
+            },
+            priority: 5,
+            link: linkFn
+        };
+
+    }]);
 }(window, document));;/*globals angular */
 
 (function(window, document, undefined) {
@@ -1827,7 +1871,8 @@
     angular.module('angular.widgets').factory('widgetInputText', ['$interpolate', 'widgetBase', function ($interpolate, widgetBase) {
 
 
-        var widgetInputText = {};
+        var widgetInputText = {},
+            eventsHelper = {};
 
         widgetInputText.determineOptions = function (scope, element, attrs) {
 
@@ -1890,7 +1935,34 @@
             }
         };
 
+        // TODO this should go in the core when used by more then 1 widget.
 
+        eventsHelper.handleEnterKey = function (element, callback) {
+            element.bind("keyup", function (e) {
+                var keyCode = widgetBase.keyCode,
+                    key = e.which;
+
+                if (key === keyCode.ENTER) {
+                    callback();
+                    e.preventDefault();
+                }
+            });
+        };
+
+        widgetInputText.registerEvents = function (inputData) {
+            var _events = inputData.element.findAllSelector('pui-event');
+            angular.forEach(_events, function (event) {
+                var puiEventData = angular.element(event).data('puiEvent');
+                if (puiEventData.event === 'ngEnter') {
+
+                    eventsHelper.handleEnterKey(inputData.element, puiEventData.callback);
+                }
+
+            });
+            _events.remove();  // As events aren't graphic, they don't need to stay oin the HTML (but is is OK it not done)
+
+
+        };
 
         return widgetInputText;
 
@@ -1903,6 +1975,7 @@
                 inputData = widgetInputText.buildWidget(element, attrs, options);
 
             widgetInputText.addBehaviour(scope, inputData);
+            widgetInputText.registerEvents(inputData);
 
         };
         return {
@@ -1913,7 +1986,8 @@
                 rendered: '=rendered'
             },
             replace: true,
-            template: '<input ng-model="value" class="pui-inputtext ui-widget ui-state-default ui-corner-all" role="textbox" aria-disabled="false" aria-readonly="false" aria-multiline="false">',
+            transclude: true,
+            template: '<input ng-model="value" class="pui-inputtext ui-widget ui-state-default ui-corner-all" role="textbox" aria-disabled="false" aria-readonly="false" aria-multiline="false" ng-transclude> ',
             link: linkFn
         };
 

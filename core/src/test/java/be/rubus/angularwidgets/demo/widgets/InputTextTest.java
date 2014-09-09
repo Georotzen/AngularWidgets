@@ -57,7 +57,7 @@ public class InputTextTest extends AbstractWidgetTest {
 
     @Override
     protected int getWidgetIdx() {
-        return 5;
+        return 6;
     }
 
     @Test

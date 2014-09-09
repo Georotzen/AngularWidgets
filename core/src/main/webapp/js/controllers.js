@@ -390,6 +390,24 @@ angular.module('demo.controllers', [])
 
         $scope.fieldsetName = 'Change me';
     } ])
+    .controller('EventController', [  '$scope', 'Widgets',  function($scope, Widgets) {
+        $scope.widgets = Widgets;
+
+        $scope.value1 = '';
+
+        $scope.showInfo = function(value) {
+            alert('Value of field is '+value);
+        };
+
+        $scope.data = {
+            name : 'test'
+        };
+
+        $scope.showName = function() {
+            alert('Current name is  ' + $scope.data.name);
+        };
+
+    } ])
     .controller('puiPanel', [ function() {
 
     } ])

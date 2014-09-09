@@ -118,6 +118,21 @@
         ]
     },
     {
+        "widget": "puiEvent",
+        "controller": "EventController",
+        "defaultPath": "puiEvent/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "puiEvent/overview"
+            },
+            {
+                "label": "default",
+                "path": "puiEvent/default"
+            }
+        ]
+    },
+    {
         "widget": "puiFieldset",
         "controller": "FieldsetController",
         "defaultPath": "puiFieldset/overview",

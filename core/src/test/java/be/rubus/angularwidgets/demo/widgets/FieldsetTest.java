@@ -53,7 +53,7 @@ public class FieldsetTest extends AbstractWidgetTest {
 
     @Override
     protected int getWidgetIdx() {
-        return 3;
+        return 4;
     }
 
     @Test
