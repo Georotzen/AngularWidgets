@@ -1,0 +1,36 @@
+<div ng-include="'partials/widgetList.html'" id="widgetList"></div>
+<div id="content">
+
+	<pui-panel header="puiEvent">
+		<div ng-include="'partials/widgetSubPages.html'" id="widgetSubPages"></div>
+
+		<section>
+			<header>focus field</header>
+            <pui-button value="focus" actionListener="focusField()"></pui-button>
+
+			Field <pui-inputText id="focus" value="value1">
+
+            </pui-inputText> <br/>
+
+		</section>
+
+		<pui-fieldset id="Source" legend="Source" style="margin-bottom:20px">
+            <pui-tabview id="sourceTabs" >
+                <pui-panel header="html" id="d_html">
+                    <pre pretty-print="html" >
+    <pui-button value="focus" actionListener="focusField()"></pui-button>
+    Field <pui-inputText id="focus" value="value1"></pui-inputText>
+                    </pre>
+                </pui-panel>
+                <pui-panel header="controller" id="d_script">
+                    <pre pretty-print="js" >
+        $scope.focusField = function() {
+            $scope.focus("#focus");
+        }
+                    </pre>
+                </pui-panel>
+			</pui-tabview>
+		</pui-fieldset>
+
+	</pui-panel>
+</div>

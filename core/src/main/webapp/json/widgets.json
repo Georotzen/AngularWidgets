@@ -278,5 +278,20 @@
             }
 
         ]
+    },
+    {
+        "widget": "utils",
+        "controller": "UtilController",
+        "defaultPath": "util/overview",
+        "subPages": [
+            {
+                "label": "overview",
+                "path": "util/overview"
+            },
+            {
+                "label": "focus",
+                "path": "util/focus"
+            }
+        ]
     }
 ]

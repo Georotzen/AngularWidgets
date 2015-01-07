@@ -27,6 +27,17 @@
         return result;
     };
 
+    AngularWidgets.idSelectorSelection = function(elements, idSelector) {
+        var result = [];
+        angular.forEach(elements, function (child) {
+            if (child.id  === idSelector) {
+                result.push(child);
+            }
+        }, result);
+
+        return result;
+    };
+
     AngularWidgets.wrapAll = function (children, wrapNodeHtml) {
         var parent = angular.element(children[0]).parent(),
             wrapNode = angular.element(wrapNodeHtml)[0];
@@ -199,7 +210,7 @@
         return widgetBase;
     }]);
 
-    angular.module('angular.widgets', ['angular.widgets.config', 'angular.service']).run(['$rootScope', function ($rootScope) {
+    angular.module('angular.widgets', ['angular.widgets.config', 'angular.service']).run(['$rootScope', '$document', function ($rootScope, $document) {
 
         $rootScope.safeApply = function (fn) {
             var phase = this.$root.$$phase;
@@ -211,6 +222,11 @@
                 this.$apply(fn);
             }
         };
+
+        $rootScope.focus = function(selector) {
+            var elements = $document.findAllSelector(selector);
+            elements[0].focus();
+        }
 
     }]);
 
@@ -292,6 +308,9 @@
 
             if (selectorType === '.') {
                 return AngularWidgets.classSelectorSelection(allChildren, selector.substring(1));
+            }
+            if (selectorType === '#') {
+                return AngularWidgets.idSelectorSelection(allChildren, selector.substring(1));
             }
             return AngularWidgets.tagSelectorSelection(allChildren, angular.uppercase(selector));
         },

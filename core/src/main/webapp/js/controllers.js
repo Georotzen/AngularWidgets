@@ -408,7 +408,13 @@ angular.module('demo.controllers', [])
         };
 
     } ])
+    .controller('UtilController', [ '$scope', 'Widgets',  function($scope, Widgets) {
+        $scope.widgets = Widgets;
+
+        $scope.focusField = function() {
+            $scope.focus("#focus");
+        }
+    } ])
     .controller('puiPanel', [ function() {
 
-    } ])
-;
+    } ]);
